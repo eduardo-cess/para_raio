@@ -7,12 +7,12 @@ and open the template in the editor.
 <html>
     <head>
         <meta charset="UTF-8">
-        <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet" type="text/css"/>
-        <link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
-        <script src="bootstrap/js/bootstrap.js" type="text/javascript"></script>
+        <link href="view/bootstrap/css/bootstrap-responsive.css" rel="stylesheet" type="text/css"/>
+        <link href="view/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <script src="view/bootstrap/js/bootstrap.js" type="text/javascript"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
-        <link href="css/estilo.css" rel="stylesheet" type="text/css"/>
+        <link href="view/css/estilo.css" rel="stylesheet" type="text/css"/>
         <title>Medição Residêncial</title>
     </head>
     <body>
