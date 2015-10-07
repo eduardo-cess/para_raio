@@ -37,4 +37,16 @@ class ControllerUsuario {
     }
 
     }
+    
+    public function getUsuario($id) {
+        
+        try {
+            $usuario = new UsuarioDao();
+            return $usuario->selectUsuario($id);
+            
+        } catch (Exception $exc) {
+            echo $exc->getTraceAsString();
+        }
+            
+    }
 }

@@ -70,8 +70,8 @@ class UsuarioDao extends Dao{
         try {
            // var_dump($usuario->getEmail());die;
 
-            $this->sql = 'INSERT INTO usuario (idPerfil,login,senha,nome,email) 
-                          VALUES(?,?,?,?,?)';
+            $this->sql = "INSERT INTO usuario (idPerfil,login,senha,nome,email) 
+                          VALUES(?,?,AES_ENCRYPT(?,'%@_-coyote-_@%'),?,?)";
             
            $this->prepare();
             
@@ -92,5 +92,19 @@ class UsuarioDao extends Dao{
 
     }
 
+    public function selectUsuario($id) {
+        try {
+            $this->sql = "SELECT idPerfil,nome,email,login, AES_DECRYPT(senha,'%@_-coyote-_@%') as senha FROM usuario WHERE id=?";
+
+            $this->prepare();
+            
+            $this->getStmt()->bindParam(1, $id);
+
+            return $this->fetchStmtObj('UsuarioDao');
+            
+        } catch (Exception $exc) {
+            echo $exc;
+        }
+        }
 
 }
