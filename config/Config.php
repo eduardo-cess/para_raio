@@ -3,7 +3,7 @@
 class Config{
     
     private $hostServer = 'localhost/para_radio';
-    private $hostDataBase = '127.0.0.1';
+    private $hostDataBase = 'localhost';
     private $dataBaseName = 'paraRaio';
     private $dataBaseUser = 'root';
     private $dataBasePassword = '12345678';
@@ -49,7 +49,9 @@ class Config{
         return $this->dataBasePassword;
     }
 
-
+    public function getDns() {
+        return "mysql:host=$this->hostDataBase;dbname=$this->dataBaseName";
+    }
 
 
 }

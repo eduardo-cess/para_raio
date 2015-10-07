@@ -5,7 +5,7 @@
  *
  * @author carlos
  */
-class Usuario {
+class Usuario extends Dao{
     
     private $id;
     private $idPerfil;
@@ -65,6 +65,6 @@ class Usuario {
     
     //////////////////////////////////////////////////
     
-    
+
 
 }
