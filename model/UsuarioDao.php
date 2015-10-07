@@ -5,7 +5,9 @@
  *
  * @author carlos
  */
-class Usuario extends Dao{
+include_once 'Dao.php';
+
+class UsuarioDao extends Dao{
     
     private $id;
     private $idPerfil;
@@ -64,7 +66,31 @@ class Usuario extends Dao{
     
     
     //////////////////////////////////////////////////
-    
+    public function insertUsuario(UsuarioDao $usuario){
+        try {
+           // var_dump($usuario->getEmail());die;
+
+            $this->sql = 'INSERT INTO usuario (idPerfil,login,senha,nome,email) 
+                          VALUES(?,?,?,?,?)';
+            
+           $this->prepare();
+            
+            
+            $this->getStmt()->bindParam(1, $usuario->getIdPerfil());
+            $this->getStmt()->bindParam(2, $usuario->getLogin());
+            $this->getStmt()->bindParam(3, $usuario->getSenha());
+            $this->getStmt()->bindParam(4, $usuario->getNome()); 
+            $this->getStmt()->bindParam(5, $usuario->getEmail());
+            
+            return $this->executeStmt();
+
+           // echo $this->stmt->rowCount(); 
+          } catch(PDOException $e) {
+            echo 'Error: ' . $e;
+          }
+
+
+    }
 
 
 }
