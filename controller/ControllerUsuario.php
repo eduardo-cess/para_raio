@@ -8,7 +8,7 @@
 include_once '../model/UsuarioDao.php';
 
 class ControllerUsuario {
-    
+
     public function cadastrarUsuario(){
         
     try {
@@ -48,5 +48,41 @@ class ControllerUsuario {
             echo $exc->getTraceAsString();
         }
             
+    }
+    
+    public function login(){
+        
+    try {
+        
+        if(isset($_POST['entrar'])){
+            extract($_POST);
+            $usuario = new UsuarioDao();
+                ///var_dump($usuario);die;
+            $result = $usuario->selectUsuarioByLogin($login);
+
+            //var_dump($result);die;
+            if($result){
+                if($result->getSenha() == $senha){
+                    if($result->getIdPerfil() == 2)
+                        header ("Location: cliente/inicio.php");
+                    
+                }
+                else {
+                    echo '<script>alert("Senha incorreta.");</script>';
+                }
+            }
+            else {
+                echo '<script>alert("Login incorreto.");</script>';
+            }
+                
+    }
+    } catch (Exception $exc) {
+        echo $exc->getTraceAsString();
+    }
+
+    }
+    
+    public function testando($param) {
+        echo $param;
     }
 }

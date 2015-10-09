@@ -107,4 +107,19 @@ class UsuarioDao extends Dao{
         }
         }
 
+        
+    public function selectUsuarioByLogin($login) {
+        try {
+            $this->sql = "SELECT idPerfil,nome,email,login, AES_DECRYPT(senha,'%@_-inove-_@%') as senha FROM usuario WHERE login=?";
+
+            $this->prepare();
+            
+            $this->getStmt()->bindParam(1, $login);
+
+            return $this->fetchStmtObj('UsuarioDao');
+            
+        } catch (Exception $exc) {
+            echo $exc;
+        }
+        }
 }

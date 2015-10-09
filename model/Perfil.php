@@ -12,6 +12,12 @@
  * @author carlos
  */
 class Perfil {
+    
+    const CLIENTE = "2";
+
+
+
+
     private $id;
     private $nome;
     

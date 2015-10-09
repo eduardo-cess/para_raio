@@ -5,7 +5,7 @@
  *
  * @author carlos
  */
-class BandeiraTarifaria {
+class BandeiraTarifaria extends Dao{
     
     private $id;
     private $nome;

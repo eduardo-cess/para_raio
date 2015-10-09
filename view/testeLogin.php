@@ -4,6 +4,20 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
+<?php
+include_once '../controller/ControllerUsuario.php';
+
+
+try {
+    $controllerUsuario = new ControllerUsuario();
+    $controllerUsuario->login();
+} catch (Exception $exc) {
+    echo $exc->getTraceAsString();
+}
+
+
+?>
+
 <html>
     <head>
         <meta charset="UTF-8">
@@ -44,8 +58,8 @@ and open the template in the editor.
                 <p><a href="#" class="btn btn-primary btn-large">Veja Mais &raquo;</a></p>
             </div>
             <div class="span9">
-                <form class="navbar-form pull-right" action="index.php" method="POST">
-                    <input class="span2" type="text" placeholder="Login" required name="login"><br>
+                <form class="navbar-form pull-right" action="testeLogin.php" method="POST">
+                    <input class="span2" type="text" placeholder="Login" required name="login" ><br>
                     <p><input class="span2" type="password" placeholder="Password" required name="senha"></p><br>
                     <button type="submit" class="btn btn-primary" name="entrar">Entrar</button>
                 </form>
@@ -54,3 +68,5 @@ and open the template in the editor.
 
     </body>
 </html>
+
+
