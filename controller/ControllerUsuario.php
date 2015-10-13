@@ -27,10 +27,10 @@ class ControllerUsuario {
             $result = $usuario->insertUsuario($usuario);
 
             //var_dump($result);die;
-            if($result)
-                echo '<script>alert("cadastrado com sucesso!");</script>';
-            else
-                echo '<script>alert("falha no cadastro.");</script>';
+//            if($result)
+//                echo '<script>alert("cadastrado com sucesso!");</script>';
+//            else
+//                echo '<script>alert("falha no cadastro.");</script>';
     }
     } catch (Exception $exc) {
         echo $exc->getTraceAsString();

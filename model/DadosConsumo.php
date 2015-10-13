@@ -5,7 +5,7 @@
  *
  * @author carlos
  */
-class DadosConsumo {
+class DadosConsumo extends Dao{
     
     private $idProduto;
     private $valor;
@@ -34,6 +34,26 @@ class DadosConsumo {
     public function setData($data) {
         $this->data = $data;
     }
+////////////////////////////////////////////////////////
+    
+    public function selectDadoConsumoByPeriodo($idProduto,$data){
+        try {
+            $this->sql = "SELECT valor FROM dadosConsumo
+                      WHERE idProduto = ? AND data = ?";
 
 
+            $this->prepare();
+
+
+            $this->getStmt()->setParam($idProduto);
+            $this->getStmt()->setParam($data);
+
+
+            return $this->fetchStmtObj('DadosConsumo');
+            
+        } catch (Exception $exc) {
+            echo $exc->getTraceAsString();
+        }
+        }
+            
 }
