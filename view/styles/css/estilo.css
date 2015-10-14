@@ -12,3 +12,14 @@ and open the template in the editor.
 h1{
     font-size: 15pt;
 }
+
+div#corpo{
+    padding-top: 4%;
+    width: 92%;
+    margin: 1% auto 4% auto;
+    box-shadow: 5px 5px 5px #888888;
+}
+
+p{
+    text-align: justify;
+}
