@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 
 <?php
-
-include_once '../controller/ControllerUsuario.php';
+//
+include_once '../../controller/ControllerUsuario.php';
 
 $controllerUsuario = new ControllerUsuario();
 $controllerUsuario->cadastrarUsuario();
 
-$usuario = $controllerUsuario->getUsuario(1);
-?>
+//$usuario = $controllerUsuario->getUsuario(1);
+//?>
 
 <html>
     <head>
@@ -16,21 +16,24 @@ $usuario = $controllerUsuario->getUsuario(1);
         <title></title>
     </head>
     <body>
-<!--        <form action="testeCadastroUsuario.php" method="POST" id="formCadastro" >-->
+        <form action="cadastroUsuario.php" method="POST" id="formCadastro" >
             
-            <p>Perfil: <input id="idPerfil" type="text" name="idPerfil" required value="<?php echo $usuario->getIdPerfil();?>"></p>
-            <p>Nome:  <input id="nome" type="text" name="nome" required value="<?php echo $usuario->getNome();?>"></p>
-            <p>Email: <input id="email" type="email" name="email" required value="<?php echo $usuario->getEmail();?>"></p>
-            <p>Login: <input id="login" type="text" name="login" required value="<?php echo $usuario->getLogin();?>"></p>
-            <p>Senha: <input id="senha" type="password" name="senha" required value="<?php echo $usuario->getSenha();?>"></p>
+            <p>Perfil: <input id="idPerfil" type="text" name="idPerfil" required ></p>
+            <p>Nome:  <input id="nome" type="text" name="nome" required ></p>
+            <p>Email: <input id="email" type="email" name="email" required ></p>
+            <p>Login: <input id="login" type="text" name="login" required ></p>
+            <p>Senha: <input id="senha" type="password" name="senha" required ></p>
             <br>
             <input type="submit" name="cadastrar" value="Cadastrar" id="cadastrar">
             
-<!--        </form>-->
+        </form>
+      </body>
+</html>      
         
         
-        <script src="js/jquery.js" type="text/javascript" ></script>
-        <script>
+        
+ 
+<!--        <script>
         
         jQuery(document).ready(function(){
             jQuery('#cadastrar').click(function(){
@@ -60,8 +63,7 @@ $usuario = $controllerUsuario->getUsuario(1);
             });
 	});
         
-        </script>
+        </script>-->
         
         
-    </body>
-</html>
+

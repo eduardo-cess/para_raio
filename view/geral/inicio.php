@@ -1,4 +1,21 @@
 <!DOCTYPE html>
+
+<?php
+include_once '../../controller/ControllerUsuario.php';
+//include_once '../../model/UsuarioDao.php';
+
+try {
+    $controllerUsuario = new ControllerUsuario();
+    
+    $controllerUsuario->login();
+} catch (Exception $exc) {
+    echo $exc->getTraceAsString();
+}
+
+
+?>
+
+
 <html>
     <head>
         <meta charset="UTF-8">
@@ -11,7 +28,7 @@
         <title>Medição Residêncial</title>
     </head>
     <body>
-
+        
         <nav class="navbar navbar-inverse">
           <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -67,12 +84,14 @@
                 <p><a href="#" class="btn btn-primary btn-large">Veja Mais &raquo;</a></p>
             </div>
             <div >
-                <form  action="index.php" method="POST">
+                <form  action="../processor.php" method="POST" style="margin-bottom: 10px">
                     <p><input type="text" placeholder="Login" required name="login"></p>
                     <p><input  type="password" placeholder="Senha" required name="senha"></p><br>
                    
-                    <button type="submit" class="btn btn-primary" name="entrar">Entrar</button>
+                    <button type="submit" class="btn btn-primary" name="entrarLogin">Entrar</button>
                 </form>
+                <a href="cadastroUsuario.php" ><button class="btn btn-primary" name="cadastrar">Não Possui Cadastro?</button></a>
+                
             </div>
             </div>
         </div>

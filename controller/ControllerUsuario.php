@@ -54,10 +54,12 @@ class ControllerUsuario {
         
     try {
         
-        if(isset($_POST['entrar'])){
+        if(isset($_POST['entrarLogin'])){
+            //include_once '../model/UsuarioDao.php';
             extract($_POST);
+            //var_dump($login);die;
             $usuario = new UsuarioDao();
-                ///var_dump($usuario);die;
+                
             $result = $usuario->selectUsuarioByLogin($login);
 
             //var_dump($result);die;
