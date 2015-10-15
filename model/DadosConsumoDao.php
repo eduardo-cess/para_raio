@@ -5,7 +5,7 @@
  *
  * @author carlos
  */
-class DadosConsumo extends Dao{
+class DadosConsumoDao extends Dao{
     
     private $idProduto;
     private $valor;
