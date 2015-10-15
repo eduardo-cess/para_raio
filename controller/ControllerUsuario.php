@@ -66,7 +66,7 @@ class ControllerUsuario {
             if($result){
                 if($result->getSenha() == $senha){
                     if($result->getIdPerfil() == 2)
-                        header ("Location: cliente/inicio.php");
+                        header ("Location: cliente_inicio.php");
                     
                 }
                 else {

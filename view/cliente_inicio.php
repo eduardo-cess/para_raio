@@ -12,7 +12,7 @@ echo 'inicio';
 <button onclick="teste()">teste</button>
 
 
-<script src="../styles/js/jquery.js"></script>
+<script src="styles/js/jquery.js"></script>
 
 <script>
 

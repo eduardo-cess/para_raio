@@ -1,3 +1,3 @@
 <?php
 
-    header("Location: view/geral/inicio.php");
+    header("Location: view/geral_inicio.php");

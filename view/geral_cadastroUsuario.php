@@ -2,7 +2,7 @@
 
 <?php
 //
-include_once '../../controller/ControllerUsuario.php';
+include_once '../controller/ControllerUsuario.php';
 
 $controllerUsuario = new ControllerUsuario();
 $controllerUsuario->cadastrarUsuario();
@@ -16,7 +16,7 @@ $controllerUsuario->cadastrarUsuario();
         <title></title>
     </head>
     <body>
-        <form action="cadastroUsuario.php" method="POST" id="formCadastro" >
+        <form action="geral_cadastroUsuario.php" method="POST" id="formCadastro" >
             
             <p>Perfil: <input id="idPerfil" type="text" name="idPerfil" required ></p>
             <p>Nome:  <input id="nome" type="text" name="nome" required ></p>

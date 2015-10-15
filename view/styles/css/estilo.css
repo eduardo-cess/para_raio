@@ -8,6 +8,10 @@ and open the template in the editor.
     Author     : armando
 */
 @charset "UTF-8";
+body{
+    background-color: #080808;
+   // background-image: url('../images/iucc-banner-web.png');
+}
 
 h1{
     font-size: 15pt;
@@ -17,9 +21,32 @@ div#corpo{
     padding-top: 4%;
     width: 92%;
     margin: 1% auto 4% auto;
-    box-shadow: 5px 5px 5px #888888;
+    //box-shadow: 5px 5px 5px #888888;
 }
 
 p{
     text-align: justify;
+}
+
+div#footer{
+    background-color: #080808;
+}
+div#footer p{
+    text-align: center;
+    color: whitesmoke;
+}
+
+#navMain li{
+    background-color: black;
+}
+#navMain button{
+    background-color: black;
+}
+
+#navMain p{
+    color: white;
+}
+
+#navMain {
+    background-image: url('../images/iucc-banner-web.png');
 }
