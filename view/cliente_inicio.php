@@ -14,15 +14,15 @@ include_once '_header.php';
     <div class="jumbotron" style="width: 95%;margin: 10px auto 10px auto;">
     <div class="container">
 
-    <p>Gráfico 1</p>
+<!--    <p>Gráfico 1</p>
     <img src='_testeGrafico3.php' class="container"/>
-    </div>
+    </div>-->
 </div>
 
 <script>
 
 function teste(){
-    $("#divTeste").load("_page.php");
+    $("#divTeste").load("_testeGrafico.php");
 }
 
 </script>

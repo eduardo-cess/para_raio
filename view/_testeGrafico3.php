@@ -1,3 +1,4 @@
+
 <?php
 //Include the code
 require_once '../library/phplot/phplot.php';
