@@ -1,7 +1,7 @@
 
 <?php
 //Include the code
-require_once '../library/phplot/phplot.php';
+include_once '../library/phplot/phplot.php';
 
 //Define the object
 

@@ -21,8 +21,8 @@ include_once '_header.php';
 
 <script>
 
-function teste(){
-    $("#divTeste").load("_testeGrafico.php");
+window.onload = function() {
+    $("#divTeste").load("_testeGrafico2.php");
 }
 
 </script>

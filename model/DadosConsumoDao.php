@@ -5,6 +5,8 @@
  *
  * @author carlos
  */
+include_once 'Dao.php';
+
 class DadosConsumoDao extends Dao{
     
     private $idProduto;
@@ -38,18 +40,19 @@ class DadosConsumoDao extends Dao{
     
     public function selectDadoConsumoByPeriodo($idProduto,$data){
         try {
-            $this->sql = "SELECT valor FROM dadosConsumo
-                      WHERE idProduto = ? AND data = ?";
-
+            $this->sql = "SELECT valor,data FROM dadosConsumo
+                          WHERE idProduto = ? 
+                          AND data > ?
+                          AND data < ? ";
 
             $this->prepare();
 
 
-            $this->getStmt()->setParam($idProduto);
-            $this->getStmt()->setParam($data);
+            $this->getStmt()->bindParam(1,$idProduto);
+            $this->getStmt()->bindParam(2,$data["inicio"]);
+            $this->getStmt()->bindParam(3,$data["final"]);
 
-
-            return $this->fetchStmtObj('DadosConsumo');
+            return $this->fetchAllStmtObj('DadosConsumoDao');
             
         } catch (Exception $exc) {
             echo $exc->getTraceAsString();
