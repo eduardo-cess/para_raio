@@ -6,33 +6,28 @@ include_once '_header.php';
 include_once '_menuGeral.php';
 try {
     $controllerUsuario = new ControllerUsuario();
-   // $d = new UsuarioDao();
-   // var_dump($d);die;
+    // $d = new UsuarioDao();
+    // var_dump($d);die;
     $controllerUsuario->login();
 } catch (Exception $exc) {
     echo $exc->getTraceAsString();
 }
-
-
 ?>
-<div id="corpo" class="jumbotron">        
-    <div class="container" >
+<div id="corpo" class="jumbotron" style="margin-top: 60px">        
+    <div class="container"class="">
         <div>
             <h1 style="font-size: 25pt">Controle seus gastos!</h1>
             <p>Com o projeto da Pará Raio, você economiza seu dinheiro acompanhando seu consumo de energia em tempo real.</p>
-            <p><a href="#" class="btn btn-primary btn-large">Veja Mais &raquo;</a></p>
         </div>
         <div >
-            <form  action="geral_inicio.php" method="POST" style="margin-bottom: 10px">
-                <p><input type="text" placeholder="Login" required name="login"></p>
-                <p><input  type="password" placeholder="Senha" required name="senha"></p><br>
-
+            <form  action="geral_inicio.php" method="POST" style="margin-bottom: 10px">               
+                <input  id="inputEmail" class="form-control" placeholder="Email"  style="margin-bottom: 10px; width: 20%">
+                <input type="password" id="inputPassword" class="form-control" placeholder="Senha"  style="width:20%"><br>
                 <button type="submit" class="btn btn-primary" name="entrarLogin">Entrar</button>
             </form>
+            <p><a href="#" class="btn btn-primary btn-large">Saiba Mais &raquo;</a></p>
             <a href="geral_cadastroUsuario.php" ><button class="btn btn-primary" name="cadastrar">Não Possui Cadastro?</button></a>
-
         </div>
-
     </div>
 </div>
 

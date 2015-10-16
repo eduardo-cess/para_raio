@@ -1,4 +1,3 @@
-
 <nav id="navMain" class="navbar navbar-inverse">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -20,9 +19,14 @@
                     <ul class="dropdown-menu">
                         <li><a href="#"><p>Informações Técnicas</p></a></li>
                         <li><a href="#"><p>Sobre a Empresa</p></a></li>
-                        <li><a href="#"><p>Informações adicionais</p></a></li>
+                        <li><a href="#"><p>Informações adicionais</p></a></li>                    
                     </ul>
+
                 </li>
+
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><span class="glyphicon glyphicon-user"></span>Sair</a></li>    
             </ul>
         </div>
     </div>
