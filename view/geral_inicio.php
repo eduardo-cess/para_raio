@@ -21,8 +21,8 @@ try {
         </div>
         <div >
             <form  action="geral_inicio.php" method="POST" style="margin-bottom: 10px">               
-                <input  id="inputEmail" class="form-control" placeholder="Email"  style="margin-bottom: 10px; width: 20%">
-                <input type="password" id="inputPassword" class="form-control" placeholder="Senha"  style="width:20%"><br>
+                <input  id="inputEmail" class="form-control" placeholder="Email"  style="margin-bottom: 10px; width: 20%" name="login">
+                <input type="password" id="inputPassword" class="form-control" placeholder="Senha"  style="width:20%" name="senha"><br>
                 <button type="submit" class="btn btn-primary" name="entrarLogin">Entrar</button>
             </form>
             <p><a href="#" class="btn btn-primary btn-large">Saiba Mais &raquo;</a></p>
