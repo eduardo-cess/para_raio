@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Checkout Mirror Fashion11111111111111111111111111111</title>
+  <title>Checkout Mirror Fashion</title>
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
 </head>
