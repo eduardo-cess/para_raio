@@ -40,6 +40,7 @@ class DadosConsumoDao extends Dao{
     
     public function selectDadoConsumoByPeriodo($idProduto,$data){
         try {
+ 
             $this->sql = "SELECT valor,data FROM dadosConsumo
                           WHERE idProduto = ? 
                           AND data > ?
@@ -58,5 +59,5 @@ class DadosConsumoDao extends Dao{
             echo $exc->getTraceAsString();
         }
         }
-            
+        
 }
