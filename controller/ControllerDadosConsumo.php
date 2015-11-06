@@ -1,11 +1,14 @@
 <?php
 
-//
-
 class ControllerDadosConsumo {
+    
+    const DIA = 1;
+    const SEMANA = 2;
+    const MES = 3;
 
     public function getConsumoDia($idProduto){
         try {
+            include_once '../library/Date.php';
             include_once '../model/DadosConsumoDao.php';
             $dadosConsumoDao = new DadosConsumoDao();
  
@@ -14,18 +17,26 @@ class ControllerDadosConsumo {
             $data = array ('inicio'=>"$inicioDia",'final'=>"$finalDia");
             
             $dados = $dadosConsumoDao->selectDadoConsumoByPeriodo($idProduto, $data);
-            $consumoTotal = 0;
-            
-            foreach ($dados as $dado){
-                echo "Consumo na data ".$dado->getData()." foi ".$dado->getValor();
-                echo '<br>';
-                $consumoTotal += $dado->getValor();
-            }
-            echo "Consumo total = $consumoTotal";
+          
+            //$consumoTotal = 0;
+            $this->agrupaDadosPorHora($dados);
             
         } catch (Exception $exc) {
             echo $exc->getTraceAsString();
         }
+        }
+        
+        public function agrupaDadosPorHora($dados) {
+            $dadosPorHora = array();
+            for($i=0;$i<=23;$i++){
+                $dadosPorHora[$i] = 0;
+                foreach ($dados as $dado) {
+                    $hora = Date::getHora($dado->getData());
+                    if($hora >= $i && $hora < ($i+1) )
+                        $dadosPorHora[$i] += $dado->getValor();
+                }
+                echo "$dadosPorHora[$i]<br>";
+            }
         }
 
 }
