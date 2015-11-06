@@ -12,6 +12,15 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
+                
+                <li class="dropdown">
+                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><p>Consumo<span class="caret"></span></p></a> 
+                   <ul class="dropdown-menu">
+                       <li><a href="#"><p>Consumo Diário</p></a></li>
+                       <li><a href="#"><p>Consumo Semanal</p></a></li>
+                       <li><a href="#"><p>Consumo Anual</p></a></li>
+                   </ul>
+                </li>
                 <li ><a href="#"><p>Contato</p><span class="sr-only">(current)</span></a></li>
 
                 <li class="dropdown">
