@@ -9,7 +9,7 @@ include '_menu_usuario.php';
     
     <div class="container" style="background-color: whitesmoke">
         <div >
-            <canvas id="myChartLine" width="200px" height="200px"></canvas>
+            <canvas id="myChartLine" width="80%" height="50%"></canvas>
         </div> 
 <!--        <div style="width: 50%;" >
             <canvas id="chart" width="400" height="500"></canvas>
@@ -24,7 +24,7 @@ include '_menu_usuario.php';
             datasets: [
                 {
                     label: "My First dataset",
-                    fillColor: "rgba(220,220,220,0.2)",
+                    fillColor: "rgba(220,220,0,0.5)",
                     strokeColor: "rgba(220,220,220,1)",
                     pointColor: "rgba(220,220,220,1)",
                     pointStrokeColor: "#fff",
