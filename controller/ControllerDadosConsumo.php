@@ -24,7 +24,7 @@ class ControllerDadosConsumo {
         } catch (Exception $exc) {
             echo $exc->getTraceAsString();
         }
-        }
+    }
         
         public function agrupaDadosPorHora($dados) {
             $dadosPorHora = array();
@@ -36,6 +36,30 @@ class ControllerDadosConsumo {
                         $dadosPorHora[$i] += $dado->getValor();
                 }
                 echo "$dadosPorHora[$i]<br>";
+            }
+        }
+        
+        public function getConsumoSemana($idProduto){
+            try {
+                include_once '../library/Date.php';
+                include_once '../model/DadosConsumoDao.php';
+                $dadosConsumoDao = new DadosConsumoDao();
+                
+                $hoje = date('w');//retorna o dia da semana numérico (0 - domingo a 6 - sábado)
+                
+                
+
+                $inicioDia = date('Y-m-d 00:00:00');
+                $finalDia = date('Y-m-d 23:59:59');
+                $data = array ('inicio'=>"$inicioDia",'final'=>"$finalDia");
+
+                $dados = $dadosConsumoDao->selectDadoConsumoByPeriodo($idProduto, $data);
+                
+                //$consumoTotal = 0;
+                $this->agrupaDadosPorHora($dados);
+
+            } catch (Exception $exc) {
+                echo $exc->getTraceAsString();
             }
         }
 
