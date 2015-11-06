@@ -35,7 +35,9 @@ class ControllerDadosConsumo {
                     if($hora >= $i && $hora < ($i+1) )
                         $dadosPorHora[$i] += $dado->getValor();
                 }
-                echo "$dadosPorHora[$i]<br>";
+                echo "<input type='hidden'id='hora$i'value '$dadosPorHora[$i]";
+                
+                
             }
         }
         

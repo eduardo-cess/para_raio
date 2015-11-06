@@ -1,7 +1,12 @@
 <?php
 include '_header.php';
 include '_menu_usuario.php';
+include_once '../controller/ControllerDadosConsumo.php';
 //
+
+$consumo = new ControllerDadosConsumo();
+$consumo->getConsumoDia(1);
+        
 ?>
 
 <html>
@@ -11,14 +16,14 @@ include '_menu_usuario.php';
         <div >
             <canvas id="myChartLine" width="80%" height="50%"></canvas>
         </div> 
-<!--        <div style="width: 50%;" >
-            <canvas id="chart" width="400" height="500"></canvas>
-        </div>-->
-
+        
     </div>
-
+    
 
     <script>  
+        for (i=0; i < 23; i++){   
+            console.log(documet.getElementById("hora"+i).value;
+        }
         var dataLine = {
             labels: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho","agosto","agosto","agosto","agosto","agosto","agosto","agosto","agosto","agosto","agosto","agosto","agosto","agosto","agosto","agosto","agosto","agosto","agosto"],
             datasets: [
