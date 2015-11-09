@@ -7,7 +7,7 @@
         <link href="styles/css/estilo.css" rel="stylesheet" type="text/css"/>
         <script src="styles/js/jquery.js" type="text/javascript"></script>
         <script src="styles/js/Chart.js-master/Chart.js" type="text/javascript"></script>
-        <script src="styles/bootstrap/js/bootstrap.js" type="text/javascript"></script>
+        <script src="styles/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         <title>Medição Residêncial</title>

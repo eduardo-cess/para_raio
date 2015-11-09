@@ -10,11 +10,21 @@ and open the template in the editor.
 @charset "UTF-8";
 body{
     background-color: #080808;
-   // background-image: url('../images/iucc-banner-web.png');
+    /*background-color: #010a52;*/
+    // background-image: url('../images/iucc-banner-web.png');
 }
 
 h1{
     font-size: 15pt;
+}
+
+li{
+    transition: background-color 0.6s ease;
+    font-weight: bold;
+}
+
+li:hover{
+    background-color: white;
 }
 
 div#corpo{
@@ -22,6 +32,10 @@ div#corpo{
     width: 92%;
     margin: 1% auto 4% auto;
     //box-shadow: 5px 5px 5px #888888;
+}
+
+div#divConteiner{
+    box-shadow: 5px 5px 5px #888888;
 }
 
 p{
@@ -38,6 +52,7 @@ div#footer p{
 
 #navMain li{
     background-color: black;
+    font-weight: bold;
 }
 #navMain button{
     background-color: black;
@@ -45,8 +60,13 @@ div#footer p{
 
 #navMain p{
     color: white;
+    font-weight: bold;
 }
 
 #navMain {
     background-image: url('../images/iucc-banner-web.png');
+}
+
+#footer{
+    margin-top: 20px
 }
