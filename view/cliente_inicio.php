@@ -3,41 +3,56 @@ include '_header.php';
 include '_menu_usuario.php';
 ?>
 
-<div class="container" style="background-color: whitesmoke">
+<div class="container" style="background-color: whitesmoke" onload="carregaG()">
     <div >
         <canvas id="myChartLine" width="80%" height="47%"></canvas>
     </div> 
 </div>
 
 <script>
+    window.onload = function () {
+        carregaG();
+    }
 
-    $.getJSON(
-            "_graficoDiario.php",
-            function (data) {
+    function carregaG() {
+        $.getJSON(
+                "_dadosGraficoDiario.php",
+                function (data) {
+                    var now = new Date;
+                    var hora = now.getHours();
+                    // alert(now.getHours());
+                    var horas = [];
 
-                var dataLine = {
-                    labels: ['0h', "1h", "2h", "3h", "4h", "5h", "6h", "7h", "8h", "9h", "10h", "11h", "12h", "13h", "14h", "15h", "16h", "17h", '18h', "19h", "20h", '21h', '22h', '23h'],
-                    datasets: [
-                        {
-                            label: "My First dataset",
-                            fillColor: "rgba(36,68,174,0.65)",
-                            strokeColor: "rgba(228,18,18,0.7)",
-                            pointColor: "rgba(220,220,220,1)",
-                            pointStrokeColor: "#fff",
-                            pointHighlightFill: "#fff",
-                            pointHighlightStroke: "rgba(220,220,220,1)",
-                            data: data
-                        }
-                    ]
-                };
+                    for (i = 0; i <= hora; i++)
+                        horas[i] = i;
 
-                window.onload = function () {
+
+                    var dataLine = {
+                        labels: horas,
+                        datasets: [
+                            {
+                                label: "My First dataset",
+                                fillColor: "rgba(36,68,174,0.65)",
+                                strokeColor: "rgba(228,18,18,0.7)",
+                                pointColor: "rgba(220,220,220,1)",
+                                pointStrokeColor: "#fff",
+                                pointHighlightFill: "#fff",
+                                pointHighlightStroke: "rgba(220,220,220,1)",
+                                data: data
+                            }
+                        ]
+                    };
+
+
 
                     var ctxLine = document.getElementById("myChartLine").getContext("2d");
                     window.myBar = new Chart(ctxLine).Line(dataLine, {responsive: true});
+                    //setTimeout('location.reload();', 5000);
+                    var tempo = window.setInterval(carregaG, 60000);
+
                 }
-            }
-    );
+        );
+    }
 
 </script>
 
