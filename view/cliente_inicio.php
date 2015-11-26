@@ -17,10 +17,10 @@ include '_menu_usuario.php';
         </ul>
     </li>
 </ul>
-
+<h1 id="titulo-grafico">Gráfico de Consumo Diário</h1>
 <div class="container" style="background-color: whitesmoke" id="divConteiner">
     <div >
-        <canvas id="grafico" width="80%" height="47%"></canvas>
+        <canvas id="grafico" width="80%" height="27%"></canvas>
     </div> 
 </div>
 
@@ -60,7 +60,7 @@ include '_menu_usuario.php';
                         labels: horas,
                         datasets: [
                             {
-                                label: "My First dataset",
+                                label: "Gráfico Diario",
                                 fillColor: "rgba(36,68,174,0.65)",
                                 strokeColor: "rgba(228,18,18,0.7)",
                                 pointColor: "rgba(220,220,220,1)",

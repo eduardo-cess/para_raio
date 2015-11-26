@@ -70,3 +70,18 @@ div#footer p{
 #footer{
     margin-top: 20px
 }
+
+#chartdiv {
+    width: 100%;
+    height: 500px;
+    font-size: 11px;
+}
+
+h1#titulo-grafico{
+    text-align: center;
+    color: white;
+}
+
+div.container{
+    background-color: #f4f4f4;
+}
