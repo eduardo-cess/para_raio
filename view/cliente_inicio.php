@@ -5,10 +5,14 @@ include_once '_menuGraficos.php';
 ?>
 
 <h1 id="titulo-grafico">Consumo Diário Total</h1>
+<div id="imagem"></div>
+
 <div class="container" style="background-color: whitesmoke" id="divConteiner">
+
     <div >
-        <canvas id="grafico" width="80%" height="37%"></canvas>
+        <canvas id="grafico" width="80%" height="37%"></canvas>        
     </div> 
+
 </div>
 
 <script>
@@ -21,24 +25,26 @@ include_once '_menuGraficos.php';
     $('.dropdown').on('hide.bs.dropdown', function (e) {
         $(this).find('.dropdown-menu').first().stop(true, true).slideUp();
     });
-    
+
     var ctxLine = document.getElementById("grafico").getContext("2d");
 
     window.onload = function () {
         carregaG();
         window.setInterval(carregaG, 30000);
+        carregaImagem(50);
 
 
     }
+
+
 
     function carregaG() {
         $.getJSON(
                 "_dadosGraficoDiarioTotal.php",
                 function (data) {
-                  console.log(data['dinheiro'])
-                  
+
                     var dataLine = {
-                        labels: ['Em reais','Em KW/h'],
+                        labels: ['Em reais', 'Em KW/h'],
                         datasets: [
                             {
                                 label: "Gráfico Diario Total",
@@ -50,13 +56,35 @@ include_once '_menuGraficos.php';
                                 pointHighlightStroke: "rgba(220,220,220,1)",
                                 data: data
                             },
-
                         ]
                     };
                     window.myBar = new Chart(ctxLine).Bar(dataLine, {responsive: true});
                     //setTimeout('location.reload();', 24000);
                 }
 
+        );
+    }
+
+    function carregaImagem(valorLimite) {
+        $.getJSON(
+                "_dadosGraficoDiarioTotal.php",
+                function (data) {
+                    if (data["energia"] >= valorLimite) {
+                        $("#imagem").append('<img id="img" src="styles/images/lampada-acendendo-e-apagando.gif"/><h3 id="advertencia">Limite de Consumo Atingido </h3>');
+                        $("#advertencia").animate({
+                            "color": "yellow"
+                            "height":"100px"
+                        }, 300, null, function () {
+                            $("#advertencia").animate({
+                               "color": "white"
+                            }, 300);
+                            $("#ball1").animate({
+                                "left": "75px"
+                            }, 300);
+                        });
+
+                    }
+                }
         );
     }
 

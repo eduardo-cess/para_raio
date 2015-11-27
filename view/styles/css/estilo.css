@@ -85,3 +85,16 @@ h1#titulo-grafico{
 div.container{
     background-color: #f4f4f4;
 }
+
+div#imagem{
+    //margin: 0px auto 5px auto;
+    text-align: center;
+    color: whitesmoke;
+}
+
+img#img{
+    height: 90px;
+    width: 90px;
+    margin: 0px auto 5px auto;
+}
+
