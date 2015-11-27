@@ -1,10 +1,6 @@
 <?php
 
 class ControllerDadosConsumo {
-    
-    const DIA = 1;
-    const SEMANA = 2;
-    const MES = 3;
 
     public function getConsumoDia($idProduto){
         try {
@@ -18,10 +14,63 @@ class ControllerDadosConsumo {
             
             $dados = $dadosConsumoDao->selectDadoConsumoByPeriodo($idProduto, $data);
             
-            //$consumoTotal = 0;
             $dadosPorHora =  $this->agrupaDadosPorHora($dados);
-            //var_dump($dadosPorHora);die;
+
             $jsonStr = json_encode($dadosPorHora);
+            echo $jsonStr;
+            
+        } catch (Exception $exc) {
+            echo $exc->getTraceAsString();
+        }
+    }
+    
+        public function getConsumoDiaDinheiro($idProduto){
+        try {
+            include_once '../library/Date.php';
+            include_once '../model/DadosConsumoDao.php';
+            $dadosConsumoDao = new DadosConsumoDao();
+ 
+            $inicioDia = date('Y-m-d 00:00:00');
+            $finalDia = date('Y-m-d 23:59:59');
+            $data = array ('inicio'=>"$inicioDia",'final'=>"$finalDia");
+
+            $dados = $dadosConsumoDao->selectDadoConsumoByPeriodo($idProduto, $data);
+
+            $dadosPorHora =  $this->agrupaDadosPorHora($dados);
+            $taxaEnergia = 0.52;
+
+            for($i=0;$i<=23;$i++){
+                $dadosPorHora['hora'."$i"] *= $taxaEnergia;
+            }
+
+            $jsonStr = json_encode($dadosPorHora);
+            echo $jsonStr;
+            
+        } catch (Exception $exc) {
+            echo $exc->getTraceAsString();
+        }
+    }
+    
+        public function getConsumoDiaTotal($idProduto){
+        try {
+            include_once '../library/Date.php';
+            include_once '../model/DadosConsumoDao.php';
+            $dadosConsumoDao = new DadosConsumoDao();
+ 
+            $inicioDia = date('Y-m-d 00:00:00');
+            $finalDia = date('Y-m-d 23:59:59');
+            $data = array ('inicio'=>"$inicioDia",'final'=>"$finalDia");
+            
+            $dados = $dadosConsumoDao->selectDadoConsumoByPeriodo($idProduto, $data);
+            
+            $dadosPorHora =  $this->agrupaDadosPorHora($dados);
+            
+            $totalConsumo = array_sum($dadosPorHora);
+            $totalConsumoDinheiro = $totalConsumo*0.52;
+            
+            $consumoTotalDia = array('dinheiro'=>$totalConsumoDinheiro,'energia'=>$totalConsumo);
+            
+            $jsonStr = json_encode($consumoTotalDia);
             echo $jsonStr;
             
         } catch (Exception $exc) {

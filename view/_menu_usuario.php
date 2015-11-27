@@ -7,7 +7,7 @@
                 <span class="glyphicon glyphicon-align-justify" aria-hidden="true" style="color: white;"></span>
 
             </button>
-            <a  class="navbar-brand" href="#"><p>Home</p></a>
+            <a  class="navbar-brand" href="cliente_graficoDiarioTotal.php"><p>Home</p></a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
