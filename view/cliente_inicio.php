@@ -30,13 +30,11 @@ include_once '_menuGraficos.php';
 
     window.onload = function () {
         carregaG();
-        window.setInterval(carregaG, 30000);
+        window.setInterval(carregaG, 10000);
         carregaImagem(50);
 
 
     }
-
-
 
     function carregaG() {
         $.getJSON(
@@ -66,26 +64,15 @@ include_once '_menuGraficos.php';
     }
 
     function carregaImagem(valorLimite) {
-        $.getJSON(
-                "_dadosGraficoDiarioTotal.php",
-                function (data) {
-                    if (data["energia"] >= valorLimite) {
-                        $("#imagem").append('<img id="img" src="styles/images/lampada-acendendo-e-apagando.gif"/><h3 id="advertencia">Limite de Consumo Atingido </h3>');
-                        $("#advertencia").animate({
-                            "color": "yellow"
-                            "height":"100px"
-                        }, 300, null, function () {
-                            $("#advertencia").animate({
-                               "color": "white"
-                            }, 300);
-                            $("#ball1").animate({
-                                "left": "75px"
-                            }, 300);
-                        });
-
-                    }
-                }
-        );
+    $.getJSON(
+            "_dadosGraficoDiarioTotal.php",
+            function (data) {
+            if (data["energia"] >= valorLimite) {
+            $("#imagem").append('<img id="img" src="styles/images/lampada-acendendo-e-apagando.gif"/><h3 id="advertencia">Limite de Consumo Atingido </h3>');
+                   
+            }
+            }
+    );
     }
 
 </script>

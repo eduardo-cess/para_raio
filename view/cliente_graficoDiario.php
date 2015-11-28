@@ -33,7 +33,7 @@ include_once '_menuGraficos.php';
 
     window.onload = function () {
         carregaG();
-        window.setInterval(carregaG, 30000);
+        window.setInterval(carregaG, 10000);
 
 
     }
