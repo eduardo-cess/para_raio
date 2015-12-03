@@ -61,10 +61,13 @@ class ControllerUsuario {
             $usuario = new UsuarioDao();
                 
             $result = $usuario->selectUsuarioByLogin($login);
-
+            
             //var_dump($result);die;
             if($result){
                 if($result->getSenha() == $senha){
+                    session_start();
+                    $_SESSION['idPerfil'] = $result->getIdPerfil();
+                    
                     if($result->getIdPerfil() == 2)
                         header ("Location: cliente_inicio.php");
                     

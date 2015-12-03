@@ -1,7 +1,10 @@
 <?php
-include '_header.php';
-include '_menu_usuario.php';
+include_once '_header.php';
+include_once '_menu_usuario.php';
 include_once '_menuGraficos.php';
+include_once '../controller/ControllerPerfil.php';
+
+ControllerPerfil::securityPerfil(2);
 ?>
 
 <h1 id="titulo-grafico">Consumo Diário Total</h1>
@@ -31,7 +34,7 @@ include_once '_menuGraficos.php';
     window.onload = function () {
         carregaG();
         window.setInterval(carregaG, 10000);
-        carregaImagem(50);
+        carregaImagem(20);
 
 
     }
